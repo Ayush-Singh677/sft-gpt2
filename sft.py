@@ -82,14 +82,14 @@ def main(args):
     )
 
     trainer.train()
-    model.push_to_hub(f"{args.user_name}/gpt-sft")
-    tokenizer.push_to_hub(f"{args.user_name}/gpt-sft")
+    model.push_to_hub(f"{args.repo_name}")
+    tokenizer.push_to_hub(f"{args.repo_name}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train a model and push to Hugging Face Hub")
     parser.add_argument("--model_name", type=str, required=True, help="Name of the model to fine-tune")
     parser.add_argument("--hf_key", type=str, required=True, help="Hugging Face API key")
-    parser.add_argument("--user_name", type=str, required=True, help="Hugging Face username")
+    parser.add_argument("--repo_name", type=str, required=True, help="Name of repository")
     parser.add_argument("--dataset_name", type=str, required=True, help="Name of the dataset to use")
     args = parser.parse_args()
 
